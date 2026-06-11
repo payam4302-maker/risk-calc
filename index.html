@@ -2,31 +2,99 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- این خط برای موبایل و تبلت خیلی مهمه -->
+    <!-- این خط برای همه دستگاه‌ها حیاتیه -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>سایت من</title>
+    <title>سایت واکنش‌گرا</title>
     
     <style>
-        /* کد CSS ریسپانسیو رو اینجا می‌نویسیم */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: sans-serif; padding: 15px; }
-        img { max-width: 100%; height: auto; }
+        /* ===== تنظیمات پایه (برای همه دستگاه‌ها) ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+        
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            max-width: 1200px;  /* حداکثر عرض برای مانیتورهای بزرگ */
+            margin: 0 auto;     /* وسط‌چین کردن */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* ===== تنظیمات برای تبلت (عرض 768 تا 1024 پیکسل) ===== */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 15px;
+            }
+            h1 { font-size: 28px; }
+            p { font-size: 16px; }
+        }
+        
+        /* ===== تنظیمات برای موبایل (عرض کمتر از 768 پیکسل) ===== */
         @media (max-width: 768px) {
-            body { font-size: 16px; }
-            button { padding: 12px; font-size: 18px; }
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 10px;
+                border-radius: 0;  /* گوشه‌ها رو صاف کن برای موبایل */
+                box-shadow: none;
+            }
+            h1 { font-size: 22px; }
+            p { font-size: 15px; }
+            
+            /* اگر منو داری، ستونی بشه */
+            nav ul {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            /* دکمه‌ها بزرگتر بشن */
+            button, .btn {
+                width: 100%;
+                padding: 14px;
+                font-size: 16px;
+            }
+        }
+        
+        /* ===== تنظیمات برای لپ‌تاپ و دسکتاپ (عرض بیشتر از 1024 پیکسل) ===== */
+        @media (min-width: 1025px) {
+            .container {
+                padding: 40px;
+            }
+            h1 { font-size: 36px; }
+            p { font-size: 18px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>سلام! این تیتر منه</h1>
-    <p>این یه متن معمولیه که توی گوشی هم درست نشون داده میشه.</p>
-    
-    <img src="image.jpg" alt="تصویر نمونه">
-    
-    <button>دکمه من</button>
+    <div class="container">
+        <h1>سلام! این سایت روی همه دستگاه‌ها درسته</h1>
+        <p>این متن رو با گوشی، تبلت، لپ‌تاپ و کامپیوتر باز کن. می‌بینی که اندازه و چیدمان به طور خودکار تنظیم میشه.</p>
+        
+        <img src="https://via.placeholder.com/800x400" alt="تصویر نمونه">
+        
+        <button style="margin-top:20px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer;">دکمه نمونه</button>
+    </div>
 
 </body>
 </html>
+
