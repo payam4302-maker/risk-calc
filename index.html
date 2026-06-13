@@ -1,60 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Risk Calculator</title>
-
+<title>Mini App Store</title>
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#0f172a;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-
-.box{
-  background:#111827;
-  padding:20px;
-  border-radius:15px;
-  width:90%;
-  max-width:400px;
-  text-align:center;
-}
-
-button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border:none;
-  border-radius:10px;
-  background:#22c55e;
-  color:white;
-  font-size:16px;
-}
+body{font-family:Arial,sans-serif;margin:0;background:#f5f5f7}
+.top{display:flex;gap:10px;align-items:center;padding:12px;background:#fff;position:sticky;top:0}
+.search{flex:1;padding:10px;border-radius:12px;border:1px solid #ddd}
+.avatar{font-size:24px}
+.content{padding:16px;padding-bottom:80px}
+.card{background:#fff;border-radius:16px;padding:12px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px;border-top:1px solid #ddd}
+.menu{display:none;position:fixed;top:0;right:0;width:85%;height:100%;background:white;overflow:auto;padding:16px}
+.row{padding:12px;border-bottom:1px solid #eee}
 </style>
 </head>
-
 <body>
+<div class="top">
+<input class="search" placeholder="جستجو...">
+<div class="avatar" onclick="openMenu()">👤</div>
+</div>
 
-<div class="box">
-  <h2>Risk Calculator</h2>
+<div class="content">
+<div class="card"><h3>بازی پیشنهادی</h3><p>نمونه کارت بازی</p></div>
+<div class="card"><h3>فیلم پیشنهادی</h3><p>نمونه کارت فیلم</p></div>
+</div>
 
-  <button onclick="calc()">Calculate Risk</button>
+<div id="menu" class="menu">
+<div style="display:flex;justify-content:space-between">
+<span>⚙️</span><span>☀️</span><span onclick="closeMenu()">↩️</span>
+</div>
+<div class="row">👤 حساب کاربری</div>
+<div class="row">📥 دانلودهای اخیر</div>
+<div class="row">🔗 اشتراک‌گذاری برنامه</div>
+<div class="row">⭐ نشان‌شده‌ها</div>
+<div class="row">💬 نظرات</div>
+<div class="row">🛡 سپر امنیت</div>
+<div class="row">🎬 اشتراک فیلم و سریال</div>
+<div class="row">💳 مالی و پرداخت</div>
+<div class="row">🆘 پشتیبانی</div>
+<div class="card">
+<h3>🎁 دعوت دوستان</h3>
+<p>هر دوست = 3 امتیاز</p>
+</div>
+</div>
 
-  <h3 id="result"></h3>
+<div class="bottom">
+<div>🏠<br>خانه</div>
+<div>🎮<br>بازی</div>
+<div>🎬<br>فیلم و سریال</div>
+<div>📥<br>بروزرسانی‌ها</div>
 </div>
 
 <script>
-function calc(){
-  let r = Math.floor(Math.random()*100);
-  document.getElementById("result").innerText = "Risk: " + r + "%";
-}
+function openMenu(){document.getElementById('menu').style.display='block';}
+function closeMenu(){document.getElementById('menu').style.display='none';}
 </script>
-
 </body>
-</html>
+</
