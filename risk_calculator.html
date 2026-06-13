@@ -3,18 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0f172a">
-
-<title>RiskCalc Pro</title>
-
-<link rel="manifest" href="data:application/manifest+json,{
-  &quot;name&quot;:&quot;Risk Calculator&quot;,
-  &quot;short_name&quot;:&quot;RiskCalc&quot;,
-  &quot;start_url&quot;:&quot;.&quot;,
-  &quot;display&quot;:&quot;standalone&quot;,
-  &quot;background_color&quot;:&quot;#0f172a&quot;,
-  &quot;theme_color&quot;:&quot;#0f172a&quot;
-}">
+<title>Risk Calculator</title>
 
 <style>
 body{
@@ -28,7 +17,7 @@ body{
   height:100vh;
 }
 
-.card{
+.box{
   background:#111827;
   padding:20px;
   border-radius:15px;
@@ -45,36 +34,25 @@ button{
   border-radius:10px;
   background:#22c55e;
   color:white;
+  font-size:16px;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="card">
+<div class="box">
   <h2>Risk Calculator</h2>
-  <button onclick="calc()">Calculate</button>
-  <h3 id="out"></h3>
+
+  <button onclick="calc()">Calculate Risk</button>
+
+  <h3 id="result"></h3>
 </div>
 
 <script>
 function calc(){
-  document.getElementById("out").innerText =
-    "Risk: " + Math.floor(Math.random()*100) + "%";
-}
-</script>
-
-<script>
-// simple offline cache
-if('serviceWorker' in navigator){
-  const sw = `
-  self.addEventListener('fetch', e=>{
-    e.respondWith(fetch(e.request).catch(()=>new Response('Offline')));
-  });
-  `;
-  const blob = new Blob([sw], {type:'application/javascript'});
-  navigator.serviceWorker.register(URL.createObjectURL(blob));
+  let r = Math.floor(Math.random()*100);
+  document.getElementById("result").innerText = "Risk: " + r + "%";
 }
 </script>
 
