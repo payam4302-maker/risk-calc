@@ -1,25 +1,60 @@
-/* استایل‌های عمومی (برای موبایل - Mobile First) */
-body {
-    margin: 0;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Calculator</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 }
 
-.container {
-    width: 100%;
+.box{
+  background:#111827;
+  padding:20px;
+  border-radius:15px;
+  width:90%;
+  max-width:400px;
+  text-align:center;
 }
 
-/* برای تبلت (عرض بالای 768 پیکسل) */
-@media (min-width: 768px) {
-    .container {
-        width: 80%;
-        margin: 0 auto;
-    }
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:#22c55e;
+  color:white;
+  font-size:16px;
 }
+</style>
+</head>
 
-/* برای دسکتاپ (عرض بالای 1024 پیکسل) */
-@media (min-width: 1024px) {
-    .container {
-        width: 1024px;
-    }
+<body>
+
+<div class="box">
+  <h2>Risk Calculator</h2>
+
+  <button onclick="calc()">Calculate Risk</button>
+
+  <h3 id="result"></h3>
+</div>
+
+<script>
+function calc(){
+  let r = Math.floor(Math.random()*100);
+  document.getElementById("result").innerText = "Risk: " + r + "%";
 }
+</script>
+
+</body>
+</html>
